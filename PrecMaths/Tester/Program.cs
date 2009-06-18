@@ -20,7 +20,7 @@ namespace Tester
             s.LeftNode = sl;
             SymbolTree st = new SymbolTree(s);
             SymbolicCalculation sc = new SymbolicCalculation(st);
-            Console.WriteLine(sc.EvaluateString(10));
+            
             Console.ReadLine();
 
         }

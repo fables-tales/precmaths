@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PrecMaths.Numbers;
+using Mono.Math;
 
 namespace PrecMaths
 {
@@ -14,7 +15,7 @@ namespace PrecMaths
         }
         private Rational PiSeries(int Precision)
         {
-            Rational pi = new Rational(0);
+            Rational pi = 0;
             int moreprecision = Precision;
             Rational sixteentothek = new Rational(1);
             for (int i = 0; i < moreprecision; i++)
@@ -26,6 +27,7 @@ namespace PrecMaths
                 pi += sixteentothek * (a + b + c + d);
                 sixteentothek /= 16;
             }
+            
             return pi;
 
         }

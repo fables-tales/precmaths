@@ -231,7 +231,6 @@ namespace PrecMathsTests
             Assert.AreEqual(0.5, e.EvaluateDecimal());
             e = new Rational(1, 3);
             Assert.AreEqual(Math.Round(1.0 / 3.0, 15), Math.Round(e.EvaluateDecimal(), 15));
-            Console.WriteLine(e.EvaluateDecimal());
             e = new Rational(3, 2);
             Assert.AreEqual(1.5, e.EvaluateDecimal());
             e = new Rational(-3, 2);
@@ -252,8 +251,14 @@ namespace PrecMathsTests
         {
             PiSymbol s = new PiSymbol(1);
             Assert.AreEqual("3.1415926536", s.EvaluteString(10));
-            s = new PiSymbol(2);
+            
+        }
+        [Test]
+        public void PiSymbolTest2()
+        {
+            PiSymbol s = new PiSymbol(2);
             Assert.AreEqual("9.86960440108935861883449099987615113531369940724079", s.EvaluteString(50));
         }
+        
     }
 }
