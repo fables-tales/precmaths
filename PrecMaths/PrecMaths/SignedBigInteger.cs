@@ -80,7 +80,7 @@ namespace PrecMaths
             }
             else if (!a.Negative && b.Negative)
             {
-                return true;
+                return false;
             }
             else if (a.Negative && b.Negative)
             {

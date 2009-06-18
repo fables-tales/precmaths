@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrecMaths", "PrecMaths\Prec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrecMathsTests", "PrecMathsTests\PrecMathsTests.csproj", "{2BAD1C06-C1FF-4578-AE44-C6867733240E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{2A867D71-4841-4390-B8ED-54B70CBE0226}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{2BAD1C06-C1FF-4578-AE44-C6867733240E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BAD1C06-C1FF-4578-AE44-C6867733240E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BAD1C06-C1FF-4578-AE44-C6867733240E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A867D71-4841-4390-B8ED-54B70CBE0226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A867D71-4841-4390-B8ED-54B70CBE0226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A867D71-4841-4390-B8ED-54B70CBE0226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A867D71-4841-4390-B8ED-54B70CBE0226}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -114,7 +114,7 @@ namespace PrecMaths
             result += build.ToString() + ".";
             BigInteger remainder = p1 % p2;
             int shifts = 0;
-            for (int i = 0; i < precision; i++)
+            for (int i = 0; i < precision+1; i++)
             {
                 remainder *= 10;
                 shifts += 1;
@@ -124,6 +124,20 @@ namespace PrecMaths
                     result += some_more_juice[j];
                 }
                 remainder = remainder % p2;
+            }
+            char[] win = result.ToCharArray();
+            if (int.Parse(result[result.Length - 1].ToString()) >= 5 && result.Length > 3)
+            {
+                int b = int.Parse(result[result.Length - 2].ToString());
+                b += 1;
+                win[win.Length - 2] = (char)(b+48);
+                
+                
+            }
+            result = "";
+            for (int i = 0; i < win.Length - 1; i++)
+            {
+                result += win[i];
             }
             if (negative)
             {

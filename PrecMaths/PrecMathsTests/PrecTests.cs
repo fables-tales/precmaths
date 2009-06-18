@@ -243,4 +243,19 @@ namespace PrecMathsTests
 
         }
     }
+    [TestFixture]
+    public class SymbolTests
+    {
+        [Test]
+        public void PiSymbolTest()
+        {
+            PiSymbol s = new PiSymbol(1, 1);
+            Assert.AreEqual("3.1415926536", s.EvaluteString(10));
+            s = new PiSymbol(3, 1);
+            Console.WriteLine(s.EvaluteString(10));
+            Assert.AreEqual("9.4247779608", s.EvaluteString(10));
+            s = new PiSymbol(1,2);
+            Assert.AreEqual("9.86960440108935861883449099987615113531369940724079", s.EvaluteString(50));
+        }
+    }
 }
