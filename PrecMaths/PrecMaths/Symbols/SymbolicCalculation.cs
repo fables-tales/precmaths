@@ -18,47 +18,45 @@ namespace PrecMaths.Symbols
         public string EvaluateString(int Precision)
         {
             foreach (Symbol s in this.symbollist){
+                if (s is NumberSymbol)
+                {
+                    this.calculationstack.Push(s);
+                }
                 if (s is OperatorSymbol)
                 {
-                    if (s is NumberSymbol)
-                    {
-                        this.calculationstack.Push(s);
+                    NumberSymbol a = (NumberSymbol)this.calculationstack.Pop();
+                    NumberSymbol b = (NumberSymbol)this.calculationstack.Pop();
+                    OperatorSymbol so = (OperatorSymbol)s;
+                    Rational result = new Rational(1);
+                    if (so.ContainedOperator == MathOperator.Plus){
+                        result = a.EvaluateRational(2 * Precision) + b.EvaluateRational(2 * Precision);
                     }
-                    if (s is OperatorSymbol)
+                    else if (so.ContainedOperator == MathOperator.Minus)
                     {
-                        NumberSymbol a = (NumberSymbol)this.calculationstack.Pop();
-                        NumberSymbol b = (NumberSymbol)this.calculationstack.Pop();
-                        OperatorSymbol so = (OperatorSymbol)s;
-                        Rational result = new Rational(1);
-                        if (so.ContainedOperator == MathOperator.Plus){
-                            result = a.EvaluateRational(2 * Precision) + b.EvaluateRational(2 * Precision);
-                        }
-                        else if (so.ContainedOperator == MathOperator.Minus)
-                        {
-                            result = a.EvaluateRational(2 * Precision) - b.EvaluateRational(2 * Precision);
-                        }
-                        else if (so.ContainedOperator == MathOperator.Multiply)
-                        {
-                            result = a.EvaluateRational(2 * Precision) * b.EvaluateRational(2 * Precision);
-                        }
-                        else if (so.ContainedOperator == MathOperator.Divide)
-                        {
-                            result = a.EvaluateRational(2 * Precision) / b.EvaluateRational(2 * Precision);
-                        }
-                        else if (so.ContainedOperator == MathOperator.Power)
-                        {
-                            a.power *= b.EvaluateRational(Precision * 2);
-                            result = a.EvaluateRational(Precision * 2);
-                        }
-                        else
-                        {
-                            throw new NotImplementedException();
-                        }
-                        this.calculationstack.Push(new RationalSymbol(result,1));
+                        result = a.EvaluateRational(2 * Precision) - b.EvaluateRational(2 * Precision);
                     }
+                    else if (so.ContainedOperator == MathOperator.Multiply)
+                    {
+                        result = a.EvaluateRational(2 * Precision) * b.EvaluateRational(2 * Precision);
+                    }
+                    else if (so.ContainedOperator == MathOperator.Divide)
+                    {
+                        result = a.EvaluateRational(2 * Precision) / b.EvaluateRational(2 * Precision);
+                    }
+                    else if (so.ContainedOperator == MathOperator.Power)
+                    {
+                        a.power *= b.EvaluateRational(Precision * 2);
+                        result = a.EvaluateRational(Precision * 2);
+                    }
+                    else
+                    {
+                        throw new NotImplementedException();
+                    }
+                    this.calculationstack.Push(new RationalSymbol(result,1));
                 }
-                
             }
+            
+            
             NumberSymbol epic = (NumberSymbol)this.calculationstack.Pop();
             return epic.EvaluateRational(2 * Precision).EvaluateString(Precision);
             
