@@ -55,6 +55,7 @@
     <Compile Include="PowerEvaluation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rational.cs" />
+    <Compile Include="RationalSymbol.cs" />
     <Compile Include="SignedBigInteger.cs" />
     <Compile Include="Symbol.cs" />
   </ItemGroup>

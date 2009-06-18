@@ -10,7 +10,7 @@ namespace Tester
     {
         static void Main(string[] args)
         {
-            PiSymbol s = new PiSymbol(1, 2);
+            PiSymbol s = new PiSymbol(2);
             s.EvaluteString(10);
         }
     }

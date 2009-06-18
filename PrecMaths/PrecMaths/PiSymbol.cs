@@ -7,9 +7,8 @@ namespace PrecMaths
 {
     public class PiSymbol:NumberSymbol
     {
-        public PiSymbol(Rational Multiplier, Rational Power)
+        public PiSymbol(Rational Power)
         {
-            this.multiplier = Multiplier;
             this.power = Power;
         }
         private Rational PiSeries(int Precision)
@@ -33,25 +32,25 @@ namespace PrecMaths
         {
             if (this.power == 0)
             {
-                return this.multiplier;
+                return 1;
             }
             else if (this.power == 1)
             {
-                return this.multiplier * this.PiSeries(precision);
+                return this.PiSeries(precision);
             }
             else if (this.power == -1)
             {
-                return this.multiplier / this.PiSeries(precision);
+                return 1 / this.PiSeries(precision);
             }
             else if (this.power < -1)
             {
                 Rational newpower = new Rational(this.power.Numerator.Number, this.power.Denominator.Number);
                 Rational flippedpiseries = 1 / this.PiSeries(precision);
-                return this.multiplier * PowerEvaluation.EvaluateRationalPower(flippedpiseries, newpower, precision);
+                return PowerEvaluation.EvaluateRationalPower(flippedpiseries, newpower, precision);
             }
             else
             {
-                return this.multiplier * PowerEvaluation.EvaluateRationalPower(this.PiSeries(precision), this.power, precision);
+                return PowerEvaluation.EvaluateRationalPower(this.PiSeries(precision), this.power, precision);
             }
             
 
@@ -62,11 +61,11 @@ namespace PrecMaths
         }
         public override decimal EvaluateDecimal()
         {
-            throw new NotImplementedException();
+            return this.internalevaluate(64).EvaluateDecimal();
         }
         public override double EvaluateDouble()
         {
-            throw new NotImplementedException();
+            return this.internalevaluate(64).EvaluateDouble();
         }
     }
 }

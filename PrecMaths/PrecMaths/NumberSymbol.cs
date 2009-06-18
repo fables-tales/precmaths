@@ -7,7 +7,6 @@ namespace PrecMaths
 {
     public abstract class NumberSymbol:Symbol
     {
-        internal Rational multiplier;
         internal Rational power;
         public abstract string EvaluteString(int precision);
         public abstract double EvaluateDouble();
