@@ -230,16 +230,9 @@ namespace PrecMaths
             else if (a.Negative)
             {
 
-                if (a.Number > b.Number)
-                {
-                    negative = true;
-                    number = a.Number - b.Number;
-                }
-                else
-                {
-                    negative = false;
-                    number = b.Number - a.Number;
-                }
+                negative = true;
+                number = a.Number + b.Number;
+                
 
 
             }
