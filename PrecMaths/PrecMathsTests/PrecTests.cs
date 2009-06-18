@@ -149,4 +149,98 @@ namespace PrecMathsTests
             Assert.AreEqual(new BigInteger(123123823), d.Number);
         }
     }
+    [TestFixture]
+    public class RationalTests{
+        [Test]
+        public void InitialiseTest()
+        {
+            Rational r = new Rational(12);
+            Assert.That(12 == r);
+            r = new Rational(-12);
+            Assert.That(-12 == r);
+            r = new Rational(120L);
+            Assert.That(120 == r);
+        }
+        [Test]
+        public void MultiplyTest()
+        {
+            Rational r = new Rational(2);
+            r = r * 4;
+            Assert.That(8 == r);
+            r *= -1;
+            Assert.That(-8 == r);
+            r = new Rational(1, 4);
+            r = r * 6;
+            Assert.AreEqual(new Rational(3, 2), r);
+        }
+        [Test]
+        public void DivideTest()
+        {
+            Rational r = new Rational(1, 2);
+            r /= 2;
+            Assert.AreEqual(new Rational(1, 4), r);
+            r = new Rational(-1, 2);
+            r /= 2;
+            Assert.AreEqual(new Rational(-1, 4), r);
+        }
+        [Test]
+        public void AddTest()
+        {
+            Rational r = new Rational(1, 3);
+            r += new Rational(1, 4);
+            Assert.AreEqual(new Rational(7, 12), r);
+            r += new Rational(-3, 4);
+            Assert.AreEqual(new Rational(-2, 12), r);
+        }
+        [Test]
+        public void SubtractTest()
+        {
+            Rational r = new Rational(1, 3);
+            r -= new Rational(5, 6);
+            Assert.AreEqual(new Rational(-1, 2), r);
+            r -= new Rational(-4, 6);
+            Assert.AreEqual(new Rational(1, 6), r);
+        }
+        [Test]
+        public void ReduceTest()
+        {
+            Rational r = new Rational(-1, -6);
+            r.Reduce();
+            Assert.AreEqual(r.Numerator.Negative, false);
+            Assert.AreEqual(r.Denominator.Negative, false);
+            Assert.AreEqual(new BigInteger(1), r.Numerator.Number);
+            Assert.AreEqual(new BigInteger(6), r.Denominator.Number);
+            r = new Rational(3, 6);
+            r.Reduce();
+            Assert.AreEqual(r.Numerator.Negative, false);
+            Assert.AreEqual(r.Denominator.Negative, false);
+            Assert.AreEqual(new BigInteger(1), r.Numerator.Number);
+            Assert.AreEqual(new BigInteger(2), r.Denominator.Number);
+            r = new Rational(1, -6);
+            r.Reduce();
+            Assert.AreEqual(r.Numerator.Negative, true);
+            Assert.AreEqual(r.Denominator.Negative, false);
+            Assert.AreEqual(new BigInteger(1), r.Numerator.Number);
+            Assert.AreEqual(new BigInteger(6), r.Denominator.Number);
+        }
+        [Test]
+        public void EvaluateTest()
+        {
+            Rational e = new Rational(1, 2);
+            Assert.AreEqual(0.5, e.EvaluateDecimal());
+            e = new Rational(1, 3);
+            Assert.AreEqual(Math.Round(1.0 / 3.0, 15), Math.Round(e.EvaluateDecimal(), 15));
+            Console.WriteLine(e.EvaluateDecimal());
+            e = new Rational(3, 2);
+            Assert.AreEqual(1.5, e.EvaluateDecimal());
+            e = new Rational(-3, 2);
+            Assert.AreEqual(-1.5, e.EvaluateDecimal());
+
+            Assert.AreEqual("0.500", new Rational(1, 2).EvaluateString(3));
+            Assert.AreEqual("1.500", new Rational(3, 2).EvaluateString(3));
+            Assert.AreEqual("-158.883", new Rational(-158883, 1000).EvaluateString(3));
+            Assert.AreEqual(-158.883m, new Rational(-158883, 1000).EvaluateDecimal());
+
+        }
+    }
 }
