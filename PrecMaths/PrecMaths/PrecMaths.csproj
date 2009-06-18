@@ -49,15 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NumberSymbol.cs" />
-    <Compile Include="OperatorSymbol.cs" />
-    <Compile Include="PiSymbol.cs" />
-    <Compile Include="PowerEvaluation.cs" />
+    <Compile Include="Symbols\NumberSymbol.cs" />
+    <Compile Include="Symbols\OperatorSymbol.cs" />
+    <Compile Include="Symbols\PiSymbol.cs" />
+    <Compile Include="Symbols\PowerEvaluation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rational.cs" />
-    <Compile Include="RationalSymbol.cs" />
-    <Compile Include="SignedBigInteger.cs" />
-    <Compile Include="Symbol.cs" />
+    <Compile Include="Numbers\Rational.cs" />
+    <Compile Include="Symbols\RationalSymbol.cs" />
+    <Compile Include="Numbers\SignedBigInteger.cs" />
+    <Compile Include="Symbols\Symbol.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

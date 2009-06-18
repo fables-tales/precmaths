@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using PrecMaths;
+using PrecMaths.Numbers;
 using Mono.Math;
 
 
