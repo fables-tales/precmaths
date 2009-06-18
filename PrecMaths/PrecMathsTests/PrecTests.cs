@@ -102,9 +102,51 @@ namespace PrecMathsTests
 
         }
         [Test]
-        public void DivideTest()
+        public void DivModTest()
         {
-
+            SignedBigInteger a, b, c, d;
+            a = new SignedBigInteger(8);
+            b = new SignedBigInteger(3);
+            c = a / b;
+            d = a % b;
+            Assert.AreEqual(false, c.Negative);
+            Assert.AreEqual(new BigInteger(2), c.Number);
+            Assert.AreEqual(false, d.Negative);
+            
+            Assert.AreEqual(new BigInteger(2), d.Number);
+            a = new SignedBigInteger(-22);
+            b = new SignedBigInteger(7);
+            c = a / b;
+            d = a % b;
+            Assert.AreEqual(true, c.Negative);
+            Assert.AreEqual(new BigInteger(3), c.Number);
+            Assert.AreEqual(new BigInteger(1), d.Number);
+            Assert.AreEqual(false, d.Negative);
+            a = new SignedBigInteger(-8);
+            b = new SignedBigInteger(-3);
+            c = a / b;
+            Assert.AreEqual(false, c.Negative);
+            Assert.AreEqual(new BigInteger(2), c.Number);
+            
+            
+        }
+        [Test]
+        public void AssignTest()
+        {
+            SignedBigInteger a, b, c, d;
+            a = -3;
+            b = new BigInteger(12341234);
+            c = 12341513241234;
+            d = new BigInteger(123123823);
+            d *= -1;
+            Assert.AreEqual(true, a.Negative);
+            Assert.AreEqual(new BigInteger(3), a.Number);
+            Assert.AreEqual(new BigInteger(12341234), b.Number);
+            Assert.AreEqual(false, b.Negative);
+            Assert.AreEqual(new BigInteger(12341513241234), c.Number);
+            Assert.AreEqual(false, c.Negative);
+            Assert.AreEqual(true, d.Negative);
+            Assert.AreEqual(new BigInteger(123123823), d.Number);
         }
     }
 }
