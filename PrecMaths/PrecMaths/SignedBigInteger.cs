@@ -201,17 +201,18 @@ namespace PrecMaths
         {
             if (b <= 0)
             {
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException("fucking fuck");
             }
             else
             {
                 if (a >= 0)
                 {
-                    return new SignedBigInteger(a.Number % b.Number);
+                    BigInteger c = a.Number % b.Number;
+                    return new SignedBigInteger(c);
                 }
                 else
                 {
-                    return b.Number - a.Number % b.Number;
+                    return new SignedBigInteger((b.Number - a.Number) % b.Number,true);
                 }
             }
             
