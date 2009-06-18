@@ -17,6 +17,10 @@ namespace PrecMaths
     }
     public class OperatorSymbol:Symbol
     {
+        public OperatorSymbol(MathOperator o)
+        {
+            this.ContainedOperator = o;
+        }
         public MathOperator ContainedOperator; 
     }
 }

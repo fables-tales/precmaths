@@ -13,21 +13,21 @@ namespace PrecMaths
             this.containedvalue = ContainedValue;
             this.power = Power;
         }
-        private Rational internalevaluate(int precision)
+        public override Rational EvaluateRational(int Precision)
         {
-            return PowerEvaluation.EvaluateRationalPower(this.containedvalue, this.power, precision);
+            return PowerEvaluation.EvaluateRationalPower(this.containedvalue, this.power, Precision);
         }
         public override decimal EvaluateDecimal()
         {
-            return this.internalevaluate(64).EvaluateDecimal();
+            return this.EvaluateRational(64).EvaluateDecimal();
         }
         public override string EvaluteString(int precision)
         {
-            return this.internalevaluate(precision).EvaluateString(precision);
+            return this.EvaluateRational(precision).EvaluateString(precision);
         }
         public override double EvaluateDouble()
         {
-            return this.internalevaluate(64).EvaluateDouble();
+            return this.EvaluateRational(64).EvaluateDouble();
         }
     }
 }

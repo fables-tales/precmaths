@@ -29,7 +29,7 @@ namespace PrecMaths
             return pi;
 
         }
-        private Rational internalevaluate(int precision)
+        public override Rational EvaluateRational(int Precision)
         {
             if (this.power == 0)
             {
@@ -37,36 +37,36 @@ namespace PrecMaths
             }
             else if (this.power == 1)
             {
-                return this.PiSeries(precision);
+                return this.PiSeries(Precision);
             }
             else if (this.power == -1)
             {
-                return 1 / this.PiSeries(precision);
+                return 1 / this.PiSeries(Precision);
             }
             else if (this.power < -1)
             {
                 Rational newpower = new Rational(this.power.Numerator.Number, this.power.Denominator.Number);
-                Rational flippedpiseries = 1 / this.PiSeries(precision);
-                return PowerEvaluation.EvaluateRationalPower(flippedpiseries, newpower, precision);
+                Rational flippedpiseries = 1 / this.PiSeries(Precision);
+                return PowerEvaluation.EvaluateRationalPower(flippedpiseries, newpower, Precision);
             }
             else
             {
-                return PowerEvaluation.EvaluateRationalPower(this.PiSeries(precision), this.power, precision);
+                return PowerEvaluation.EvaluateRationalPower(this.PiSeries(Precision), this.power, Precision);
             }
             
 
         }
         public override string EvaluteString(int precision)
         {
-            return this.internalevaluate(precision).EvaluateString(precision);
+            return this.EvaluateRational(precision).EvaluateString(precision);
         }
         public override decimal EvaluateDecimal()
         {
-            return this.internalevaluate(64).EvaluateDecimal();
+            return this.EvaluateRational(64).EvaluateDecimal();
         }
         public override double EvaluateDouble()
         {
-            return this.internalevaluate(64).EvaluateDouble();
+            return this.EvaluateRational(64).EvaluateDouble();
         }
     }
 }

@@ -58,6 +58,9 @@
     <Compile Include="Symbols\RationalSymbol.cs" />
     <Compile Include="Numbers\SignedBigInteger.cs" />
     <Compile Include="Symbols\Symbol.cs" />
+    <Compile Include="Symbols\SymbolicCalculation.cs" />
+    <Compile Include="Symbols\SymbolTree.cs" />
+    <Compile Include="Symbols\SymbolTreeNode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

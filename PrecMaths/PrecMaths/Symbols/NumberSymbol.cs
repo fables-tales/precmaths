@@ -12,5 +12,6 @@ namespace PrecMaths
         public abstract string EvaluteString(int precision);
         public abstract double EvaluateDouble();
         public abstract decimal EvaluateDecimal();
+        public abstract Rational EvaluateRational(int Precision);
     }
 }
