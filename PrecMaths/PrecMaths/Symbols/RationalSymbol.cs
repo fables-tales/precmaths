@@ -13,6 +13,10 @@ namespace PrecMaths
             this.containedvalue = ContainedValue;
             this.power = Power;
         }
+        public override string ToString()
+        {
+            return this.containedvalue.EvaluateString(3);
+        }
         public override Rational EvaluateRational(int Precision)
         {
             return PowerEvaluation.EvaluateRationalPower(this.containedvalue, this.power, Precision);

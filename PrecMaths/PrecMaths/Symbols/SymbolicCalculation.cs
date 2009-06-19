@@ -15,6 +15,12 @@ namespace PrecMaths.Symbols
             this.symbollist = s.PostOrderTraverse();
             this.calculationstack = new Stack<Symbol>();
         }
+        public SymbolicCalculation(List<Symbol> ReversePolishNotation)
+        {
+            this.symbollist = new List<Symbol>();
+            this.symbollist.AddRange(ReversePolishNotation);
+            this.calculationstack = new Stack<Symbol>();
+        }
         public string EvaluateString(int Precision)
         {
             foreach (Symbol s in this.symbollist){
@@ -24,8 +30,8 @@ namespace PrecMaths.Symbols
                 }
                 if (s is OperatorSymbol)
                 {
-                    NumberSymbol a = (NumberSymbol)this.calculationstack.Pop();
                     NumberSymbol b = (NumberSymbol)this.calculationstack.Pop();
+                    NumberSymbol a = (NumberSymbol)this.calculationstack.Pop();
                     OperatorSymbol so = (OperatorSymbol)s;
                     Rational result = new Rational(1);
                     if (so.ContainedOperator == MathOperator.Plus){

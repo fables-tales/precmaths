@@ -5,6 +5,7 @@ using System.Text;
 using NUnit.Framework;
 using PrecMaths;
 using PrecMaths.Numbers;
+using PrecMaths.Symbols;
 using Mono.Math;
 
 
@@ -259,6 +260,21 @@ namespace PrecMathsTests
             PiSymbol s = new PiSymbol(2);
             Assert.AreEqual("9.86960440108935861883449099987615113531369940724079", s.EvaluteString(50));
         }
-        
+        [Test]
+        public void SymbolSuperTests()
+        {
+            string result = Evaluator.EvaluateInFixMaths("3+4", 3);
+            Assert.AreEqual("7.000", result);
+            result = Evaluator.EvaluateInFixMaths("(3+4)*3", 3);
+            Assert.AreEqual("21.000", result);
+            result = Evaluator.EvaluateInFixMaths("3*(5*1-2)",3);
+            Assert.AreEqual("9.000", result);
+            result = Evaluator.EvaluateInFixMaths("2^(1/2)", 3);
+            Assert.AreEqual("1.414", result);
+            result = Evaluator.EvaluateInFixMaths("3*(4+1*2)-7",3);
+            Assert.AreEqual("11.000", result);
+            result = Evaluator.EvaluateInFixMaths("(3/2)^4*7-1", 3);
+            Assert.AreEqual("34.438",result);
+        }
     }
 }

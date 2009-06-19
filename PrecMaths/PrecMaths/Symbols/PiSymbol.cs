@@ -13,6 +13,10 @@ namespace PrecMaths
         {
             this.power = Power;
         }
+        public override string ToString()
+        {
+            return this.EvaluteString(3);
+        }
         private Rational PiSeries(int Precision)
         {
             Rational pi = 0;

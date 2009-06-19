@@ -16,10 +16,18 @@ namespace PrecMaths
             }
             SignedBigInteger normalexponentiations = power.Numerator / power.Denominator;
             SignedBigInteger funkyexponentiation = power.Numerator % power.Denominator;
-            Rational result = a.Clone();
-            for (int i = 1; i < normalexponentiations; i++)
+            Rational result;
+            if (normalexponentiations > 0)
             {
-                result *= a;
+                result = a.Clone();
+                for (int i = 1; i < normalexponentiations; i++)
+                {
+                    result *= a;
+                }
+            }
+            else
+            {
+                result = 1;
             }
             Rational upperbound;
             if (a > 1)

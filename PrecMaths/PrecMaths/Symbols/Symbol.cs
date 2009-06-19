@@ -7,6 +7,6 @@ namespace PrecMaths
 {
     public abstract class Symbol
     {
-                
+        public abstract override string ToString();        
     }
 }

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Symbols\Evaluator.cs" />
     <Compile Include="Symbols\NumberSymbol.cs" />
     <Compile Include="Symbols\OperatorSymbol.cs" />
     <Compile Include="Symbols\PiSymbol.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Numbers\Rational.cs" />
     <Compile Include="Symbols\RationalSymbol.cs" />
     <Compile Include="Numbers\SignedBigInteger.cs" />
+    <Compile Include="Symbols\ShuntingYardAlgorithm.cs" />
     <Compile Include="Symbols\Symbol.cs" />
     <Compile Include="Symbols\SymbolicCalculation.cs" />
     <Compile Include="Symbols\SymbolTree.cs" />
