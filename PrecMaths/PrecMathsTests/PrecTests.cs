@@ -275,6 +275,10 @@ namespace PrecMathsTests
             Assert.AreEqual("11.000", result);
             result = Evaluator.EvaluateInFixMaths("(3/2)^4*7-1", 3);
             Assert.AreEqual("34.438",result);
+            result = Evaluator.EvaluateInFixMaths("(2^(1/2))+(5/7)*24-(2/9)", 10);
+            Assert.AreEqual("18.3348484830", result);
+            result = Evaluator.EvaluateInFixMaths("pi*(3^(1/2))", 10);
+            Assert.AreEqual("5.4413980927", result);
         }
     }
 }

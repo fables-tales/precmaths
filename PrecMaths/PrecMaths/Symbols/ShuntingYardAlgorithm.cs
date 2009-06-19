@@ -117,21 +117,31 @@ namespace PrecMaths.Symbols
                 }
                 else
                 {
-                    if (c == '0' || c == '1' || c == '2' || c == '3' || c == '3' || c == '4' ||
-                        c == '5' || c == '6' || c == '7' || c == '8' || c == '9'
+                    if (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' ||
+                        c == '5' || c == '6' || c == '7' || c == '8' || c == '9' || c == 'p' || c == 'i'
                        )
                     {
                         IsAnOperator = false;
                         buffer += c;
                     }
+                    
                 }
                 if (IsAnOperator)
                 {
                     if (buffer != "")
                     {
-                        long add = long.Parse(buffer);
-                        RationalSymbol rs = new RationalSymbol(new PrecMaths.Numbers.Rational(add), 1);
-                        InFix.Add(rs);
+                        if (buffer == "pi")
+                        {
+                            PiSymbol ps = new PiSymbol(1);
+                            InFix.Add(ps);
+                            buffer = "";
+                        }
+                        else
+                        {
+                            long add = long.Parse(buffer);
+                            RationalSymbol rs = new RationalSymbol(new PrecMaths.Numbers.Rational(add), 1);
+                            InFix.Add(rs);
+                        }
                         buffer = "";
                     }
                     InFix.Add(os);
